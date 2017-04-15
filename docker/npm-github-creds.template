@@ -1,0 +1,10 @@
+# Environment vars file for Gulp builder container. Injected by docker-compose.
+# Do not check in your passwords. Instead, make a copy of this file, replace 
+# the values with your LDAP credentials, and reference this file from 
+# docker-compose.yml, or inject them manually with `docker run -e ...`
+
+NPM_REGISTRY=https://npm.363-283.io/
+NPM_USERNAME=
+NPM_PASSWORD=
+NPM_EMAIL=
+JSPM_GITHUB_AUTH_TOKEN=

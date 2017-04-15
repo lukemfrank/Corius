@@ -1,0 +1,46 @@
+{
+  "name": "generator-corius",
+  "version": "0.2.5",
+  "description": "A Yeoman generator with options to choose JS and UI frameworks with pre-configured user service routes.",
+  "main": "",
+  "author": "Decipher Technology Studios",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@gitlab.363-283.io:2252/cte/corius.git"
+  },
+  "keywords": [
+    "angular",
+    "babel",
+    "es6",
+    "gulp",
+    "jspm",
+    "less",
+    "react",
+    "sass",
+    "systemjs",
+    "yeoman-generator"
+  ],
+  "dependencies": {
+    "chalk": "1.1.1",
+    "cheerio": "0.17.0",
+    "deep-extend": "0.4.0",
+    "ejs": "2.3.4",
+    "gulp": "3.9.0",
+    "lodash": "4.5.0",
+    "object-assign": "4.0.1",
+    "underscore.string": "3.1.1",
+    "yeoman-generator": "0.20.3",
+    "yo": "1.6.0",
+    "yosay": "1.1.0"
+  },
+  "peerDependencies": {},
+  "devDependencies": {},
+  "engines": {
+    "node": ">=5.3.0",
+    "npm": ">=3.3.12"
+  },
+  "publishConfig": {
+    "registry": "https://npm.363-283.io/"
+  }
+}

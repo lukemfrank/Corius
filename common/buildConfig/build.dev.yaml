@@ -1,0 +1,2 @@
+# baseUrl value that will be used to set <base href=""> in index.html
+baseUrl: /

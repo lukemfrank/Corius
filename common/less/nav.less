@@ -1,0 +1,71 @@
+// nav.less
+
+@import 'helpers';
+
+@bg-color: #333;
+@nav-height: 55px;
+@font-color: #fff;
+
+.corius-nav {
+  .position(absolute, 0, auto, auto, 0);
+  width: 100%;
+  height: @nav-height;
+  background-color: @bg-color;
+
+  .branding {
+    float: left;
+    width: 100px;
+    height: @nav-height;
+    margin: 0 20px;
+    line-height: @nav-height;
+    > div {
+      width: 100%;
+      height: @nav-height / 2;
+      margin: 12px 0;
+      background: url('../img/logo.png') no-repeat;
+    }
+  }
+
+  .nav-link {
+    display: block;
+    float: left;
+    height: 100%;
+    padding: 0 20px;
+    font-size: 16px;
+    font-weight: 200;
+    line-height: @nav-height;
+    color: @font-color;
+    text-decoration: none;
+  }
+
+  .display-name {
+    .position(absolute, 0, 20px, auto, auto);
+    line-height: @nav-height;
+    color: @font-color;
+  }
+}
+
+md-toolbar {
+  min-height: 55px !important;
+}
+
+.md-toolbar-tools  {
+  height: 55px !important;
+}
+
+.notification-dropdown-title {
+  padding: 16px;
+}
+
+.corius-materialize-nav .text:hover {
+  background-color: transparent;
+}
+
+.corius-materialize .dropdown-content .corius-no-hover:hover {
+  background-color: transparent;
+}
+
+.menu-title {
+  padding-right: 15px;
+  padding-left: 15px;
+}

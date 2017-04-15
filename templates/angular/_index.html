@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+  <base href="{{baseUrl}}">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <meta name="apple-mobile-web-app-title" content="<%= appName %>">
+  <title><%= appName %></title>
+  <% if (uiFramework === 'materialdesign') { %>
+  <link rel="stylesheet" href="icons/materialDesign/material-icons.css"><% } %>
+  <!-- PROD START
+  <link rel="stylesheet" href="css/vendor.min.css">
+  <link rel="stylesheet" href="css/app.min.css">
+  PROD END -->
+</head>
+
+<!-- Instead of using ng-app directive, Angular will attach to <body> via angular.bootstrap() in mainModule.js. -->
+<body ng-cloak>
+  <noscript>
+    <div class="js-disabled-warning">
+      <h1>JavaScript not detected.</h1>
+      <p>This application requires JavaScript. Please enable it from your browser settings.
+    </div>
+  </noscript>
+
+  <div ui-view="nav"></div>
+  <div ui-view="content"></div>
+
+  <!-- PROD START
+  <div id="app"></div>
+  <script src="app.min.js"></script>
+  PROD END -->
+
+  <!-- DEV START -->
+  <div id="app" style="display:none"></div>
+  <script src="jspm_packages/system.js"></script>
+  <script src="system.config.js"></script>
+  <script>
+    System.import('js/app').then(function() {
+      // load up our custom CSS after so we can override 3rd party CSS
+      // that's been imported via ES6 modules.
+      var file = document.createElement('link');
+      file.setAttribute('rel', 'stylesheet');
+      file.setAttribute('type', 'text/css');
+      file.setAttribute('href', 'css/app.css');
+      document.getElementsByTagName('head')[0].appendChild(file);
+    }, 50);
+  </script>
+  <!-- DEV END -->
+</body>
+</html>

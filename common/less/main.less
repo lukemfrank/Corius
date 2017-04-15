@@ -1,0 +1,78 @@
+// main.less
+
+@import 'helpers';
+
+.main {
+  .position(absolute, 55px, auto, auto, 0);
+  width: 100%;
+}
+
+.content {
+  max-width: 968px;
+  padding: 20px;
+  margin: 20px auto;
+  font-size: 16px;
+  font-weight: 200;
+  background: #f7f7f7;
+
+  h1, h4 {
+    font-weight: 200;
+  }
+
+  h1 {
+    margin-top: 0;
+    font-size: 2em;
+  }
+
+  h4 {
+    margin-left: 20px;
+    font-size: 1.2em;
+  }
+
+  .user-dependencies {
+    margin-top: 20px;
+  }
+  
+  .material-design-example {
+    position: relative;
+
+    .description {
+      position: absolute;
+      top: 5px;
+      width: 510px;
+    }
+
+    .material-design-dialog {
+      margin-left: 510px;
+    }
+  }
+
+  .bootstrap-example {
+    > div {
+      float: right;
+    }
+
+    button {
+      margin-left: 20px;
+    }
+  }
+}
+
+ul {
+  margin: 20px 0;
+
+  li {
+    list-style: none;
+    h4 {
+      display: inline-block;
+      margin: 10px;
+    }
+
+    .description {
+      display: inline-block;
+      font-style: italic;
+      color: #737373;
+    }
+  }
+}
+  

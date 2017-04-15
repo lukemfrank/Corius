@@ -1,0 +1,197 @@
+/* main.css */
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('/font/OpenSans-Light-webfont.eot');
+  src: url('/font/OpenSans-Light-webfont.eot?#iefix') format('embedded-opentype'),
+       url('/font/OpenSans-Light-webfont.woff') format('woff'),
+       url('/font/OpenSans-Light-webfont.ttf') format('truetype'),
+       url('/font/OpenSans-Light-webfont.svg#OpenSansLight') format('svg');
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('/font/OpenSans-Regular-webfont.eot');
+  src: url('/font/OpenSans-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+       url('/font/OpenSans-Regular-webfont.woff') format('woff'),
+       url('/font/OpenSans-Regular-webfont.ttf') format('truetype'),
+       url('/font/OpenSans-Regular-webfont.svg#OpenSansRegular') format('svg');
+  font-weight: normal;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.corius-nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 55px;
+  background-color: #333;
+}
+
+.corius-nav .branding {
+  float: left;
+  width: 100px;
+  height: 55px;
+  margin: 0 20px;
+  line-height: 55px;
+}
+
+.corius-nav .branding div {
+  width: 100%;
+  height: 27.5px;
+  margin: 12px 0;
+  background: url('../img/logo.png') no-repeat;
+}
+
+.corius-nav .nav-link {
+  display: block;
+  float: left;
+  height: 100%;
+  padding: 0 20px;
+  font-size: 16px;
+  font-weight: 200;
+  line-height: 55px;
+  color: #fff;
+  text-decoration: none;
+}
+
+md-toolbar {
+  min-height: 55px !important;
+}
+
+.md-toolbar-tools  {
+  height: 55px !important;
+}
+
+.corius-nav .display-name {
+  position: absolute;
+  top: 0;
+  right: 20px;
+  line-height: 55px;
+  color: #fff;
+}
+
+.main {
+  position: absolute;
+  top: 55px;
+  left: 0;
+  width: 100%;
+}
+
+.content {
+  max-width: 968px;
+  padding: 20px;
+  margin: 20px auto;
+  font-size: 16px;
+  font-weight: 200;
+  background: #f7f7f7;
+}
+
+.content h1, .content h4 {
+  font-weight: 200;
+}
+
+.content h1 {
+  margin-top: 0;
+  font-size: 2em;
+}
+
+.content h4 {
+  margin-left: 20px;
+  font-size: 1.2em;
+}
+
+ul {
+  margin: 20px 0;
+}
+
+ul li {
+  list-style: none;
+}
+
+ul li h4 {
+  display: inline-block;
+  margin: 10px;
+}
+
+ul li .description {
+  display: inline-block;
+  font-style: italic;
+  color: #737373;
+}
+
+.content .user-dependencies {
+  margin-top: 20px;
+}
+
+.bootstrap-example button {
+  margin-left: 10px;
+}
+
+.bootstrap-example .demo-modal {
+  float: right;
+}
+
+.material-design-example {
+  position: relative;
+}
+
+.material-design-example .description {
+  position: absolute;
+  top: 5px;
+  width: 510px;
+}
+
+.material-design-dialog {
+  margin-left: 510px;
+}
+
+.login {
+  position: fixed;
+  top: 0;
+  right: auto;
+  bottom: auto;
+  left: auto;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+}
+
+.login .message {
+  position: absolute;
+  top:50%;
+  left: 50%;
+  width: 200px;
+  height: 40px;
+  margin-top: -20px;
+  margin-left: -100px;
+  font-size: 16px;
+  text-align: center;
+}
+
+.notification-dropdown-title {
+  padding: 16px;
+}
+
+.corius-materialize-nav .brand-logo {
+  position: relative;
+  float: left;
+}
+
+.corius-materialize-nav .text:hover {
+  background-color: transparent;
+}
+
+.corius-materialize .dropdown-content .corius-no-hover:hover {
+  background-color: transparent;
+}
+
+.menu-title {
+  padding-right: 15px;
+  padding-left: 15px;
+}

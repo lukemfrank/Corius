@@ -1,0 +1,78 @@
+// nav.scss
+
+@import 'helpers';
+
+$bg-color: #333;
+$nav-height: 55px;
+$font-color: #fff;
+
+.corius-nav {
+  @include position(absolute, 0, auto, auto, 0);
+  background-color: $bg-color;
+  height: $nav-height;
+  width: 100%;
+  z-index: 1;
+
+  .branding {
+    float: left;
+    height: $nav-height;
+    line-height: $nav-height;
+    margin: 0 20px;
+    width: 100px;
+
+    > div {
+      background: url('../img/logo.png') no-repeat;
+      height: $nav-height / 2;
+      margin: 12px 0;
+      width: 100%;
+    }
+  }
+
+  .nav-link {
+    color: $font-color;
+    display: block;
+    float: left;
+    font-size: 16px;
+    font-weight: 200;
+    height: 100%;
+    line-height: $nav-height;
+    padding: 0 20px;
+    text-decoration: none;
+  }
+
+  .display-name {
+    @include position(absolute, 0, 20px, auto, auto);
+    color: $font-color;
+    line-height: $nav-height;
+  }
+}
+
+md-toolbar {
+  min-height: 55px !important;
+}
+
+.md-toolbar-tools {
+  height: 55px !important;
+}
+
+.notification-dropdown-title {
+  padding: 16px;
+}
+
+.corius-materialize-nav .brand-logo {
+  float: left;
+  position: relative;
+}
+
+.corius-materialize-nav .text:hover {
+  background-color: transparent;
+}
+
+.corius-materialize .dropdown-content .corius-no-hover:hover {
+  background-color: transparent;
+}
+
+.menu-title {
+  padding-left: 15px;
+  padding-right: 15px;
+}

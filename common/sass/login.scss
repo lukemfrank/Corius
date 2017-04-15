@@ -1,0 +1,21 @@
+// login.scss
+
+@import 'helpers';
+
+.login {
+  @include position(fixed, 0, auto, auto, auto);
+  background: #fff;
+  height: 100%;
+  width: 100%;
+  z-index: 2;
+
+  .message {
+    @include position(absolute, 50%, auto, auto, 50%);
+    font-size: 16px;
+    height: 40px;
+    margin-left: -100px;
+    margin-top: -20px;
+    text-align: center;
+    width: 200px;
+  }
+}

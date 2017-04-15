@@ -1,0 +1,39 @@
+<md-toolbar>
+  <div class="corius-nav">
+    <div class="md-toolbar-tools">
+      <nav>
+        <a href="home">
+          <h1>Corius</h1>
+        </a>
+        <a href="about" class="nav-link">About</a>
+      </nav>
+      <span flex></span>
+      <md-menu>
+        <md-button aria-label="Open profile menu" class="md-icon-button" ng-click="openMenu($mdOpenMenu, $event)">
+          <i class="material-icons">expand_more</i>
+        </md-button>
+        <md-menu-content width="4">
+          <div class="notification-dropdown-title">{{ userName }}</div>
+          <md-menu-item>
+            <md-button>
+              Edit profile
+            </md-button>
+          </md-menu-item>
+        </md-menu-content>
+      </md-menu>
+      <md-menu>
+        <md-button aria-label="Open notifications menu" class="md-icon-button" ng-click="openMenu($mdOpenMenu, $event)">
+          <i class="material-icons">expand_more</i>
+        </md-button>
+        <md-menu-content width="4">
+          <div class="notification-dropdown-title">Notifications</div>
+          <md-menu-item data-ng-repeat="notification in notifications">
+            <md-button>
+              {{ notification.message }}
+            </md-button>
+          </md-menu-item>
+        </md-menu-content>
+      </md-menu>
+    </div>
+  </div>
+</md-toolbar>

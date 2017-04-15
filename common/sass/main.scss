@@ -1,0 +1,83 @@
+// main.scss
+
+@import 'font';
+@import 'helpers';
+
+$background-color: #f7f7f7;
+$description-text-color: #737373;
+
+.main {
+  @include position(absolute, 55px, auto, auto, 0);
+  width: 100%;
+}
+
+.content {
+  background: $background-color;
+  font-size: 16px;
+  font-weight: 200;
+  margin: 20px auto;
+  max-width: 968px;
+  padding: 20px;
+
+  h1,
+  h4 {
+    font-weight: 200;
+  }
+
+  h1 {
+    font-size: 2em;
+    margin-top: 0;
+  }
+
+  h4 {
+    font-size: 1.2em;
+    margin-left: 20px;
+  }
+
+  .user-dependencies {
+    margin-top: 20px;
+  }
+
+  .material-design-example {
+    position: relative;
+
+    .description {
+      position: absolute;
+      top: 5px;
+      width: 510px;
+    }
+
+    .material-design-dialog {
+      margin-left: 510px;
+    }
+  }
+
+  .bootstrap-example {
+    > div {
+      float: right;
+    }
+
+    button {
+      margin-left: 20px;
+    }
+  }
+}
+
+ul {
+  margin: 20px 0;
+
+  li {
+    list-style: none;
+
+    h4 {
+      display: inline-block;
+      margin: 10px;
+    }
+
+    .description {
+      color: $description-text-color;
+      display: inline-block;
+      font-style: italic;
+    }
+  }
+}
