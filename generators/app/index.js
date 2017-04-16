@@ -84,7 +84,7 @@ module.exports = generators.Base.extend({
     }
 
     if (this.jsFramework === 'angular') {
-      this.composeWith('corius:angular', { 
+      this.composeWith('decipher-corius:angular', {
         options: {
           'skip-app-name-message': true,
           'skip-welcome-message': true,
@@ -93,7 +93,7 @@ module.exports = generators.Base.extend({
         }
       });
     } else if (this.jsFramework === 'react') {
-      this.composeWith('corius:react', { 
+      this.composeWith('decipher-corius:react', {
         options: {
           'skip-app-name-message': true,
           'skip-welcome-message': true,
@@ -102,7 +102,7 @@ module.exports = generators.Base.extend({
         }
       });
     } else {
-      this.composeWith('corius:default', { 
+      this.composeWith('decipher-corius:default', { 
         options: {
           'skip-app-name-message': true,
           'skip-welcome-message': true,

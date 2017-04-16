@@ -17,8 +17,12 @@ services:
     build: ./
     command: "/usr/local/bin/start-dev-container.sh"
     user: app
-    env_file:
-      - ./docker/npm-github-creds.dev
+    environment:
+      NPM_REGISTRY: ${NPM_REGISTRY}
+      NPM_USERNAME: ${NPM_USERNAME}
+      NPM_PASSWORD: ${NPM_PASSWORD}
+      NPM_EMAIL: ${NPM_EMAIL}
+      JSPM_GITHUB_AUTH_TOKEN: ${JSPM_GITHUB_AUTH_TOKEN}
     tty: true
     expose:
       - 9000

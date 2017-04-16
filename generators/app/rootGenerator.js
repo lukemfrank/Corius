@@ -53,7 +53,7 @@ module.exports = generators.Base.extend({
     if (!this.options['skip-welcome-message']) {
       this.log(yosay('Welcome to Corius ' + _s.titleize(this.generatorName) + '! Out of the box I include ' + _s.titleize(this.generatorName) + ', JSPM, ES6 (Babel), and Gulp to manage tasks.'));
     }
-  
+
     if (this.options['app-name']) {
       this.appName = this.options['app-name'];
     }
@@ -166,7 +166,7 @@ module.exports = generators.Base.extend({
 
   writing: function() {
     // directories
-    // Note: this.directory() copies everything as a template (i.e., any 
+    // Note: this.directory() copies everything as a template (i.e., any
     // <%= xxx %> EJS variables will be replaced with values
     this.directory('test');
 
@@ -175,7 +175,6 @@ module.exports = generators.Base.extend({
     this.template('_gitignore', '.gitignore');
     this.template('_eslintrc', '.eslintrc');
     this.template('karma.conf.js');
-    this.template('README.md');
 
     this.fs.copyTpl(
       this.templatePath('_package.json'),
@@ -250,7 +249,7 @@ module.exports = generators.Base.extend({
         this.destinationPath('gulpTasks/icons.js'));
       this.directory('../../common/icons/materialDesign', 'icons/materialDesign');
     }
-    
+
     // copy build configuration
     this.fs.copyTpl(
       this.templatePath('../../common/buildConfig/build.dev.yaml'),
@@ -291,6 +290,11 @@ module.exports = generators.Base.extend({
       this.templatePath('../../nginx/proxy.conf'),
       this.destinationPath('nginx/proxy.conf'),
       {appName: this.appName.toLowerCase()});
+
+    this.fs.copyTpl(
+      this.templatePath('../../common/README.md'),
+      this.destinationPath('README.md'),
+      {appName: this.appName});
   },
 
   install: function() {
@@ -314,7 +318,7 @@ module.exports = generators.Base.extend({
    *  - to: destination (if source is a glob pattern, this should be a directory)
    *  - ignorePaths: array of (globbed) paths that should NOT be included in the copy
    *  - templateValues: object containing values used to render templates
-   * 
+   *
    * @param  {Object} options - see above
    * @return {void}
    */

@@ -1,13 +1,13 @@
 {
-  "name": "generator-corius",
+  "name": "generator-decipher-corius",
   "version": "0.2.5",
-  "description": "A Yeoman generator with options to choose JS and UI frameworks with pre-configured user service routes.",
+  "description": "Multi-framework front end application generator.",
   "main": "",
   "author": "Decipher Technology Studios",
-  "license": "ISC",
+  "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "ssh://git@gitlab.363-283.io:2252/cte/corius.git"
+    "url": "ssh://git@github.com:DecipherNow/corius.git"
   },
   "keywords": [
     "angular",
@@ -41,6 +41,6 @@
     "npm": ">=3.3.12"
   },
   "publishConfig": {
-    "registry": "https://npm.363-283.io/"
+    "registry": "http://34.206.52.14:4873"
   }
 }

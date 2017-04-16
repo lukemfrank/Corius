@@ -9,42 +9,42 @@ set -e
 # app is the user we become when running our container.
 export HOME=/home/app
 
-# These environment variables must be provided to our container.
-errmsg="You must set variables NPM_PASSWORD, NPM_EMAIL, NPM_USERNAME, and JSPM_GITHUB_AUTH_TOKEN."
-if [ $NPM_USERNAME = "" ]; then
-    echo $errmsg
-    exit 1;
-fi
-if [ $NPM_PASSWORD = "" ]; then
-    echo $errmsg
-    exit 1;
-fi
-if [ $NPM_EMAIL = "" ]; then
-    echo $errmsg
-    exit 1;
-fi
-if [ $JSPM_GITHUB_AUTH_TOKEN = "" ]; then
-    echo $errmsg
-    exit 1;
-fi
+# These environment variables can be provided to our container to set private NPM registry.
+envVars=( "NPM_REGISTRY" "NPM_USERNAME" "NPM_PASSWORD" "NPM_EMAIL" )
+usePrivateNpm=false
 
-# Walk through the prompts for logging into our private npm registry.
-npm set registry https://npm.363-283.io
-npm adduser --registry https://npm.363-283.io <<!
-$NPM_USERNAME
-$NPM_PASSWORD
-$NPM_EMAIL
-!
+for i in "${envVars[@]}"
+do
+  if [ "${!i}" != "" ]; then
+    usePrivateNpm=true
+  else
+    usePrivateNpm=false
+    break
+  fi
+done
+
+if [ $usePrivateNpm == true ]; then
+  echo "Using private NPM registry config for $NPM_REGISTRY"
+  # Walk through the prompts for logging into our private npm registry.
+  npm set registry $NPM_REGISTRY
+  npm adduser --registry $NPM_REGISTRY <<!
+  $NPM_USERNAME
+  $NPM_PASSWORD
+  $NPM_EMAIL
+  !
+else
+  echo "Using default NPM registry https://registry.npmjs.org/"
+fi
 
 echo "strict-ssl=false" >> ~/.npmrc
 
 # Check if ~/.jspm/config exists. If it doesn't, pipe our config file template
 # directly into the newly created file.
 if [ ! -f $HOME/.jspm/config ]; then
-    echo ".jspm/config does not exist. Creating..."
-    if [ ! -d $HOME/.jspm ]; then
-        mkdir $HOME/.jspm
-    fi
+  echo ".jspm/config does not exist. Creating..."
+  if [ ! -d $HOME/.jspm ]; then
+    mkdir $HOME/.jspm
+  fi
 cat >${HOME}/.jspm/config <<EOL
 {
   "defaultTranspiler": "babel",
@@ -80,11 +80,14 @@ cat >${HOME}/.jspm/config <<EOL
 }
 EOL
 else
-    # If ~/.jspm/config does exist, simply update strictSSL to false with sed.
-    sed -i.bak ' /strictSSL/ s/true/false/ ' $HOME/.jspm/config
+  # If ~/.jspm/config does exist, simply update strictSSL to false with sed.
+  sed -i.bak ' /strictSSL/ s/true/false/ ' $HOME/.jspm/config
 fi
 
-jspm config registries.github.auth $JSPM_GITHUB_AUTH_TOKEN
+# This will allow JSPM to install private GitHub repos
+if [ "$JSPM_GITHUB_AUTH_TOKEN" != "" ]; then
+  jspm config registries.github.auth $JSPM_GITHUB_AUTH_TOKEN
+fi
 
 ## Configuration complete. Invoke the install.
 cd /app
