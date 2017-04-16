@@ -14,7 +14,8 @@ Please install these dependencies.
 * [Docker](https://docs.docker.com/engine/installation/)
 
 ## Quick Start
-`docker-compose up`
+1. `docker-compose up`
+2. Once the dev server starts, navigate to https://localhost
 
 ## Configure NPM and JSPM
 If you want to use a private NPM registry set these environment variables:

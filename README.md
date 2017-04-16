@@ -24,6 +24,8 @@ Please install these dependencies.
   $ yo decipher-corius
 ```
 
+After your app is created, refer to it's README file for additional instructions.
+
 ## UI Frameworks
 ### JavaScript MVW
 ![alt React logo](assets/logos/react.png) [React](https://facebook.github.io/react/) a javascript library for building user interfaces  
