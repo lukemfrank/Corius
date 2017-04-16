@@ -15,36 +15,37 @@ usePrivateNpm=false
 
 for i in "${envVars[@]}"
 do
-  if [ "${!i}" != "" ]; then
-    usePrivateNpm=true
-  else
-    usePrivateNpm=false
-    break
-  fi
+    if [ "${!i}" != "" ]; then
+        usePrivateNpm=true
+    else
+        usePrivateNpm=false
+        break
+    fi
 done
 
 if [ $usePrivateNpm == true ]; then
-  echo "Using private NPM registry config for $NPM_REGISTRY"
-  # Walk through the prompts for logging into our private npm registry.
-  npm set registry $NPM_REGISTRY
-  npm adduser --registry $NPM_REGISTRY <<!
-  $NPM_USERNAME
-  $NPM_PASSWORD
-  $NPM_EMAIL
-  !
-else
-  echo "Using default NPM registry https://registry.npmjs.org/"
-fi
+    echo "Using private NPM registry config for $NPM_REGISTRY"
 
-echo "strict-ssl=false" >> ~/.npmrc
+# Walk through the prompts for logging into our private npm registry.
+npm set registry $NPM_REGISTRY
+npm adduser --registry $NPM_REGISTRY <<!
+$NPM_USERNAME
+$NPM_PASSWORD
+$NPM_EMAIL
+!
+
+    echo "strict-ssl=false" >> ~/.npmrc
+else
+    echo "Using default NPM registry https://registry.npmjs.org"
+fi
 
 # Check if ~/.jspm/config exists. If it doesn't, pipe our config file template
 # directly into the newly created file.
 if [ ! -f $HOME/.jspm/config ]; then
-  echo ".jspm/config does not exist. Creating..."
-  if [ ! -d $HOME/.jspm ]; then
-    mkdir $HOME/.jspm
-  fi
+    echo ".jspm/config does not exist. Creating..."
+    if [ ! -d $HOME/.jspm ]; then
+        mkdir $HOME/.jspm
+    fi
 cat >${HOME}/.jspm/config <<EOL
 {
   "defaultTranspiler": "babel",
@@ -80,13 +81,13 @@ cat >${HOME}/.jspm/config <<EOL
 }
 EOL
 else
-  # If ~/.jspm/config does exist, simply update strictSSL to false with sed.
-  sed -i.bak ' /strictSSL/ s/true/false/ ' $HOME/.jspm/config
+    # If ~/.jspm/config does exist, simply update strictSSL to false with sed.
+    sed -i.bak ' /strictSSL/ s/true/false/ ' $HOME/.jspm/config
 fi
 
 # This will allow JSPM to install private GitHub repos
 if [ "$JSPM_GITHUB_AUTH_TOKEN" != "" ]; then
-  jspm config registries.github.auth $JSPM_GITHUB_AUTH_TOKEN
+    jspm config registries.github.auth $JSPM_GITHUB_AUTH_TOKEN
 fi
 
 ## Configuration complete. Invoke the install.
@@ -95,4 +96,4 @@ cd /app
 # Invoke our compile/watch/reload as the final command running in our container.
 # Use dumb-init to run child processes under PID 1. https://blog.phusion.nl/2015/01/20/docker-and-the-pid-1-zombie-reaping-problem/
 npm install
-dumb-init gulp
+dumb-init npm run dev

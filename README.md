@@ -11,7 +11,7 @@
 
 ## Dependencies
 Please install these dependencies.
-* [NodeJS](https://nodejs.org/en/)
+* [NodeJS](https://nodejs.org/en/) (we recommend [NVM](https://github.com/creationix/nvm) for OSX)
 * [Yeoman](http://yeoman.io/)
 * [JSPM](http://jspm.io/)
 

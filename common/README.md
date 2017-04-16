@@ -9,7 +9,7 @@
 
 ## Dependencies
 Please install these dependencies.
-* [NodeJS](https://nodejs.org/en/)
+* [NodeJS](https://nodejs.org/en/) (we recommend [NVM](https://github.com/creationix/nvm) for OSX)
 * [JSPM](http://jspm.io/)
 * [Docker](https://docs.docker.com/engine/installation/)
 
@@ -57,7 +57,7 @@ Docker will spin up 2 containers: 1 for the UI and another for Nginx (TLS and pr
 | `$ npm run build` | generate production distribution |
 
 ## Authentication Service
-This application has built in authentication using a hosted authentication micro service. PKI certificates should be downloaded [here](http://google.com).  Please install certificates accordingly into your web browser.
+This application has built in authentication using a hosted authentication micro service. PKI certificates should be downloaded [here](https://s3.amazonaws.com/decipherers/test-certs.zip).  Each test certificate's password is literally the word `password`. Please install certificates accordingly into your web browser.
 
 ## Additional Configuration
 

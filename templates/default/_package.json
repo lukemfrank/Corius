@@ -8,8 +8,9 @@
   "scripts": {
     "test": "karma start",
     "test:watch": "karma start --no-single-run --auto-watch",
-    "build": "gulp build",
-    "start": "gulp",
+    "dev": "export BUILD_ENV=dev && gulp",
+    "staging": "export BUILD_ENV=staging && gulp build",
+    "build": "export BUILD_ENV=prod && gulp build",
     "buildJs": "jspm bundle-sfx js/app dist/app.min.js --minify --skip-source-maps",
     "postinstall": "cd src && jspm install"
   },

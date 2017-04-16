@@ -23,7 +23,7 @@ function receiveUserFailure(errors) {
     user: {
       errors: errors['json'] ? errors.json.errors : {
         error: {
-          message: 'Error retrieving user credentials.'
+          message: 'No response from the user service.'
         }
       }
     }
