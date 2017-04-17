@@ -21,7 +21,6 @@ Please install these dependencies.
 If you want to use a private NPM registry set these environment variables:
 
 ```bash
-
   $ export NPM_REGISTRY=https://privaterRegistryHostName
   $ export NPM_USERNAME=luke.skywalker
   $ export NPM_PASSWORD=vaderIsMyDad!
@@ -31,7 +30,6 @@ If you want to use a private NPM registry set these environment variables:
 If you want JSPM to install private GitHub repos first create a JSPM GitHub auth token.
 
 ```bash
-
   # Configure JSPM to install from private GitHub repos
   $ jspm registry config github
 
@@ -42,7 +40,6 @@ If you want JSPM to install private GitHub repos first create a JSPM GitHub auth
 Copy the value of `jspm config registries.github.auth` and  set this environment variable:
 
 ```bash
-
   $ export JSPM_GITHUB_AUTH_TOKEN=yourtoken
 ```
 
@@ -65,8 +62,7 @@ This application has built in authentication using a hosted authentication micro
 ### Increase max file limit on OSX
 Running unit tests opens a lot of files, more than OSX's default settings can handle.  If you receive an error such as `Error: EMFILE: too many open files`, then you should increase the max number of open files.
 
-```sh
-
+```bash
   # edit sysctl
   $ sudo vim /etc/sysctl.conf
 

@@ -15,20 +15,17 @@ Please install these dependencies.
 * [Yeoman](http://yeoman.io/)
 
 ```bash
-
 npm install -g yo
 ```
 
 * [JSPM](http://jspm.io/)
 
 ```bash
-
 npm install -g jspm
 ```
 
 ## Quick Start
 ```bash
-
   $ npm set registry http://34.206.52.14:4873
   $ npm install -g generator-decipher-corius
   $ mkdir myApp && cd $_
