@@ -17,7 +17,7 @@ module.exports = {
     otherModules: []
   },
   react: {
-    uiFrameworks: ['bootstrap', 'materialDesign'],
+    uiFrameworks: ['bootstrap'],
     cssFrameworks: ['sass', 'less'],
     otherFrameworks: ['redux'],
     otherModules: ['capco']
