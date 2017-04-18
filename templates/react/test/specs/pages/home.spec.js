@@ -1,6 +1,6 @@
 // home.spec.js
 
-import Home from 'src/js/pages/home';
+import Home from 'src/js/views/home';
 import React from 'react';
 
 describe('home', function() {

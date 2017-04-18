@@ -1,6 +1,6 @@
 // about.spec.js
 
-import About from 'src/js/pages/about';
+import About from 'src/js/views/about';
 import React from 'react';
 
 describe('about', function() {

@@ -3,9 +3,9 @@
 import 'es6-shim';
 import $ from 'jquery';
 import director from 'director';
-import about from './pages/about';
-import home from './pages/home';
-import login from './pages/login';
+import about from './views/about';
+import home from './views/home';
+import login from './views/login';
 <% if(uiFramework === 'materialdesign') { %>
 import materialize from 'dogfalo/materialize';
 <% } %>

@@ -7,16 +7,16 @@ import { Route, IndexRoute } from 'react-router';
 <% if (otherFrameworks.redux) { %>
 import { routeActions } from 'react-router-redux';
 import { store } from './store';
-import { MainContainer as Main } from './pages/main';
-import { HomeContainer as Home } from './pages/home';
-import { LoginContainer as Login } from './pages/login';
+import { MainContainer as Main } from './views/main';
+import { HomeContainer as Home } from './views/home';
+import { LoginContainer as Login } from './views/login';
 <% } else { %>
 import auth from './auth/auth';
-import Main from './pages/main';
-import Home from './pages/home';
-import Login from './pages/login';
+import Main from './views/main';
+import Home from './views/home';
+import Login from './views/login';
 <% } %>
-import About from './pages/about';
+import About from './views/about';
 import appConfig from './appConfig';
 
 const routes = (

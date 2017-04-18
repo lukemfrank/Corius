@@ -1,7 +1,7 @@
 // requireAuth.js
 
 import auth from '../auth/auth';
-import login from '../pages/login';
+import login from '../views/login';
 import appConfig from '../appConfig';
 
 export default (component) => {

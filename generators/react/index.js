@@ -42,18 +42,18 @@ module.exports = rootGenerator.extend({
       this.promptAnswers);
 
     this.fs.copyTpl(
-      this.templatePath('lib/pages/main.js'),
-      this.destinationPath('src/js/pages/main.js'),
+      this.templatePath('lib/views/main.js'),
+      this.destinationPath('src/js/views/main.js'),
       this.promptAnswers);
 
     this.fs.copyTpl(
-      this.templatePath('lib/pages/main.spec.js'),
-      this.destinationPath('test/specs/pages/main.spec.js'),
+      this.templatePath('lib/views/main.spec.js'),
+      this.destinationPath('test/specs/views/main.spec.js'),
       this.promptAnswers);
 
     this.fs.copyTpl(
-      this.templatePath('lib/pages/login.js'),
-      this.destinationPath('src/js/pages/login.js'),
+      this.templatePath('lib/views/login.js'),
+      this.destinationPath('src/js/views/login.js'),
       this.promptAnswers);
 
     this.fs.copyTpl(
