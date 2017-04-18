@@ -8,14 +8,13 @@ import { Route, IndexRoute } from 'react-router';
 import { routeActions } from 'react-router-redux';
 import { store } from './store';
 import { MainContainer as Main } from './views/main';
-import { HomeContainer as Home } from './views/home';
 import { LoginContainer as Login } from './views/login';
 <% } else { %>
 import auth from './auth/auth';
 import Main from './views/main';
-import Home from './views/home';
 import Login from './views/login';
 <% } %>
+import Home from './views/home';
 import About from './views/about';
 import appConfig from './appConfig';
 

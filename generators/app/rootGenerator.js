@@ -312,7 +312,7 @@ module.exports = generators.Base.extend({
     this.fs.copyTpl(
       this.templatePath('../../nginx/proxy.conf'),
       this.destinationPath('nginx/proxy.conf'),
-      assign({appName: this.appName.toLowerCase()}, this.promptAnswers));
+      assign(this.promptAnswers, {appName: this.appName.toLowerCase()}));
 
     this.fs.copyTpl(
       this.templatePath('../../common/README.md'),
