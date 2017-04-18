@@ -12,7 +12,11 @@
     "staging": "export BUILD_ENV=staging && gulp build",
     "build": "export BUILD_ENV=prod && gulp build",
     "buildJs": "jspm bundle-sfx js/app dist/app.min.js --minify --skip-source-maps",
+    <% if (cssFramework == 'sass') { %>
+    "postinstall": "npm rebuild node-sass && cd src && jspm install"
+    <% } else { %>
     "postinstall": "cd src && jspm install"
+    <% } %>
   },
   "keywords": [
     "es6",
