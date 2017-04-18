@@ -28,36 +28,6 @@ export default {
       banner: 'UNCLASSIFIED',
       portion: 'U',
       classif: 'U'
-    },
-    secret: {
-      version: '2.1.0',
-      classif: 'S',
-      owner_prod: [],
-      atom_energy: [],
-      sar_id: [],
-      sci_ctrls: [],
-      disponly_to: [],
-      dissem_ctrls: [
-        'OC'
-      ],
-      non_ic: [],
-      rel_to: [],
-      fgi_open: [],
-      fgi_protect: [],
-      portion: 'S//OC',
-      banner: 'SECRET//ORCON',
-      accms: [],
-      macs: [],
-      oc_attribs: [
-        {
-          'orgs': [
-            'cia'
-          ],
-          'missions': [],
-          'regions': []
-        }
-      ],
-      disp_only: ''
     }
   },<% } %>
   userServiceEndpoint: '/service/userservice/1.0',

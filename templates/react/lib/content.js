@@ -11,20 +11,13 @@ class Content extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      acm1: appConfig.defaultCapco.unclassified,
-      acm2: appConfig.defaultCapco.secret
+      acm: appConfig.defaultCapco.unclassified
     };
   }
 
-  capcoCallback1 = (acm) => {
+  capcoCallback = (acm) => {
     this.setState({
-      acm1: acm
-    });
-  }
-
-  capcoCallback2 = (acm) => {
-    this.setState({
-      acm2: acm
+      acm: acm
     });
   }
 <% } %>
@@ -90,20 +83,12 @@ class Content extends React.Component {
                     <% if (otherModules.capco) { %>
                     <li>
                       <h4 style={{float: 'left'}}>{'CAPCO'}</h4>
-                      <div style={{display: 'inline-block', margin: '10px 10px 0 0'}}>
-                        <Capco
-                          acm={this.state.acm1}
-                          callback={this.capcoCallback1}
-                        >
-                          <span>{this.state.acm1.banner}</span>
-                        </Capco>
-                      </div>
                       <div style={{display: 'inline-block', marginTop: '10px'}}>
                         <Capco
-                          acm={this.state.acm2}
-                          callback={this.capcoCallback2}
+                          acm={this.state.acm}
+                          callback={this.capcoCallback}
                         >
-                          <span>{this.state.acm2.banner}</span>
+                          <span>{this.state.acm.banner}</span>
                         </Capco>
                       </div>
                     </li>
