@@ -1,22 +1,25 @@
 /**
  * Configuration object for generator library dependencies.
- * 
+ *
  * @type {Object}
  */
 module.exports = {
   angular: {
     uiFrameworks: ['bootstrap', 'materialDesign'],
     cssFrameworks: ['sass', 'less'],
-    otherFrameworks: []
+    otherFrameworks: [],
+    otherModules: []
   },
   default: {
     uiFrameworks: ['bootstrap', 'materialDesign'],
     cssFrameworks: ['sass', 'less'],
-    otherFrameworks: []
+    otherFrameworks: [],
+    otherModules: []
   },
   react: {
     uiFrameworks: ['bootstrap', 'materialDesign'],
     cssFrameworks: ['sass', 'less'],
-    otherFrameworks: ['redux']
+    otherFrameworks: ['redux'],
+    otherModules: ['capco']
   }
 }

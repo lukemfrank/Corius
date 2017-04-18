@@ -2,9 +2,32 @@
 
 import React from 'react';
 import ListItem from './listItem';
-
+<% if (otherModules.capco) { %>
+import Capco from 'capco-ui/lib/react/capco';
+import appConfig from '../appConfig';
+<% } %>
 class Content extends React.Component {
+<% if (otherModules.capco) { %>
+  constructor(props) {
+    super(props);
+    this.state = {
+      acm1: appConfig.defaultCapco.unclassified,
+      acm2: appConfig.defaultCapco.secret
+    };
+  }
 
+  capcoCallback1 = (acm) => {
+    this.setState({
+      acm1: acm
+    });
+  }
+
+  capcoCallback2 = (acm) => {
+    this.setState({
+      acm2: acm
+    });
+  }
+<% } %>
   render() {
     var deps = {
       React: { description: 'a javascript library for building user interfaces' }
@@ -64,6 +87,27 @@ class Content extends React.Component {
                         );
                       })
                     }
+                    <% if (otherModules.capco) { %>
+                    <li>
+                      <h4 style={{float: 'left'}}>{'CAPCO'}</h4>
+                      <div style={{display: 'inline-block', margin: '10px 10px 0 0'}}>
+                        <Capco
+                          acm={this.state.acm1}
+                          callback={this.capcoCallback1}
+                        >
+                          <span>{this.state.acm1.banner}</span>
+                        </Capco>
+                      </div>
+                      <div style={{display: 'inline-block', marginTop: '10px'}}>
+                        <Capco
+                          acm={this.state.acm2}
+                          callback={this.capcoCallback2}
+                        >
+                          <span>{this.state.acm2.banner}</span>
+                        </Capco>
+                      </div>
+                    </li>
+                    <% } %>
                   </ul>
                 </div>
               );

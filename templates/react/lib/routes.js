@@ -8,13 +8,15 @@ import { Route, IndexRoute } from 'react-router';
 import { routeActions } from 'react-router-redux';
 import { store } from './store';
 import { MainContainer as Main } from './pages/main';
+import { HomeContainer as Home } from './pages/home';
+import { LoginContainer as Login } from './pages/login';
 <% } else { %>
 import auth from './auth/auth';
 import Main from './pages/main';
-<% } %>
-import About from './pages/about';
 import Home from './pages/home';
 import Login from './pages/login';
+<% } %>
+import About from './pages/about';
 import appConfig from './appConfig';
 
 const routes = (

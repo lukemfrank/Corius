@@ -32,7 +32,7 @@ class Nav extends React.Component {
         </nav>
         {this.props.hasUserData() &&
           <div className="display-name">
-            Welcome, {this.props.getUserDisplayName()}
+            {`Welcome, ${this.props.getUserDisplayName()}`}
           </div>
         }
       </div>

@@ -106,6 +106,13 @@ module.exports = generators.Base.extend({
       }
     });
 
+    var otherModules = _.map(this.config.otherModules, function(val) {
+      return {
+        name: _s.capitalize(val),
+        value: val.toLowerCase()
+      }
+    });
+
     if (!this.options['skip-app-name-message']) {
       prompts.push(
         {
@@ -135,8 +142,17 @@ module.exports = generators.Base.extend({
       prompts.push({
         type: 'checkbox',
         name: 'otherFrameworks',
-        message: 'What else would you like to include?',
+        message: 'Would like to use a state container?',
         choices: otherFrameworks
+      });
+    }
+
+    if (otherModules.length) {
+      prompts.push({
+        type: 'checkbox',
+        name: 'otherModules',
+        message: 'Would you like to include any of these modules?',
+        choices: otherModules
       });
     }
 
@@ -151,6 +167,13 @@ module.exports = generators.Base.extend({
         tempOtherFrameworks[val] = true;
       });
       this.promptAnswers.otherFrameworks = tempOtherFrameworks;
+
+      // Convert modules to object literal
+      var tempOtherModules = {};
+      _.forEach(this.promptAnswers.otherModules, function(val) {
+        tempOtherModules[val] = true;
+      });
+      this.promptAnswers.otherModules = tempOtherModules;
 
       // If the app name was not collected via prompt (e.g., a --skip arg was used)
       // then add it manually so following code can always use this.promptAnswers.
@@ -289,7 +312,7 @@ module.exports = generators.Base.extend({
     this.fs.copyTpl(
       this.templatePath('../../nginx/proxy.conf'),
       this.destinationPath('nginx/proxy.conf'),
-      {appName: this.appName.toLowerCase()});
+      assign({appName: this.appName.toLowerCase()}, this.promptAnswers));
 
     this.fs.copyTpl(
       this.templatePath('../../common/README.md'),

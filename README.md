@@ -4,7 +4,7 @@
 
 1. [Dependencies](#dependencies)
 1. [Quick Start](#quick-start)
-1. [UI Frameworks](#ui-frameworks)
+1. [Frameworks](#frameworks)
 1. [Additional Configuration](#additional-onfiguration)
 1. [Important Notes](#important-notes)
 1. [Contributing](#contributing)
@@ -13,28 +13,40 @@
 Please install these dependencies.
 * [NodeJS](https://nodejs.org/en/) (we recommend [NVM](https://github.com/creationix/nvm) for OSX)
 * [Yeoman](http://yeoman.io/)
-
 ```bash
-npm install -g yo
+$ npm install -g yo
 ```
 
 * [JSPM](http://jspm.io/)
-
 ```bash
-npm install -g jspm
+$ npm install -g jspm
 ```
 
 ## Quick Start
+1. Add yourself to the Decipher NPM Registry, taking note of your username, password, and email.
 ```bash
-  $ npm set registry http://34.206.52.14:4873
-  $ npm install -g generator-decipher-corius
-  $ mkdir myApp && cd $_
-  $ yo decipher-corius
+$ npm set registry http://34.206.52.14:4873
+$ npm adduser
 ```
 
-After your app is created, refer to it's README file for additional instructions.
+2. Set NPM environment variables which will be used by your generated app. If you want these variables to persist you can add them to `~/.bash_profile` (OSX) or follow your OS procedure accordingly.
+```bash
+$ export NPM_REGISTRY http://34.206.52.14:4873
+$ export NPM_USERNAME decipher_npm_username
+$ export NPM_PASSWORD decipher_npm_password
+$ export NPM_EMAIL decipher_npm_email
+```
 
-## UI Frameworks
+3. Install Corius and create your app.
+```bash
+$ npm install -g generator-decipher-corius
+$ mkdir myApp && cd $_
+$ yo decipher-corius
+```
+
+4. After your app is generated, refer to its README for additional instructions.
+
+## Frameworks
 ### JavaScript MVW
 ![alt React logo](assets/logos/react.png) [React](https://facebook.github.io/react/) a javascript library for building user interfaces  
 ![alt Angular logo](assets/logos/angular.jpg) [AngularJS](https://angularjs.org/) Superheroic JavaScript MVW framework  
@@ -50,6 +62,9 @@ After your app is created, refer to it's README file for additional instructions
 ### State Management
 [Redux](http://redux.js.org/) a predictable state container for JavaScript apps
 
+### Other Modules
+CAPCO - Intelligence Community Classification and Control Markings
+
 ### Additional components
 [JSPM](http://jspm.io/) package management and module loading for the browser  
 [ES6](http://es6-features.org/#Constants) ECMAScript6 features exposed via the Babel transpiler  
@@ -57,7 +72,7 @@ After your app is created, refer to it's README file for additional instructions
 [Normalize](https://necolas.github.io/normalize.css/) - makes browsers render all elements more consistently and in line with modern standards   
 
 ## Important Notes
-This generator is not intended to run multiple times on the same project.  If you install Angular but then want to switch to React you should run it on a new project.
+**This generator is not designed to be run multiple times on the same project.  If you generate an Angular app but then generate a React app on top of it, the frameworks will collide.**
 
 Microsoft's new web browser 'Edge', to replace Internet Explorer, does not appear to be able to view the website and will display an error indicating that it cannot reach the page.  Use Internet Explorer, Chrome, Firefox, etc. instead.
 

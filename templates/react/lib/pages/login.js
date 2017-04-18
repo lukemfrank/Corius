@@ -1,7 +1,6 @@
 // login.js
 
 import React, { PropTypes } from 'react';
-
 <% if (!otherFrameworks.redux) { %>
 import auth from '../auth/auth';
 import dispatcher from '../api/dispatcher';
@@ -10,7 +9,7 @@ import { connect } from 'react-redux';
 import { routeActions } from 'react-router-redux';
 import { fetchUserIfNeeded } from '../reducers/user';
 <% } %>
-export default class Login extends React.Component {
+class Login extends React.Component {
   <% if (otherFrameworks.redux) { %>
   static propTypes = {
     dispatch: PropTypes.object
@@ -117,5 +116,7 @@ function mapStateToProps(state) {
 }
 
 const LoginContainer = connect(mapStateToProps)(Login);
-export default LoginContainer;
+export {Login, LoginContainer};
+<% } else { %>
+export default Login;
 <% } %>
